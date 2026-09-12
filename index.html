@@ -331,7 +331,7 @@
       for (let i = 0; i < 8; i++) {
         const lane = i % 3;
         const y = -120 - i * 110;
-        const botSpeed = (200 + Math.random() * 10) / 18;
+        const botSpeed = 15 + Math.random() * 3;
         state.racers.push(makeRacer(names[i % names.length], lane, y, botSpeed, colors[i % colors.length]));
       }
 
@@ -406,7 +406,7 @@
           bot.lane = Math.floor(Math.random() * 3);
           bot.x = laneX(bot.lane);
           bot.y = -120 - Math.random() * 200;
-          bot.speed = (200 + Math.random() * 10) / 18;
+          bot.speed = 15 + Math.random() * 3;
         }
 
         bot.x = laneX(bot.lane);
