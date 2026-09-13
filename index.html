@@ -299,7 +299,7 @@
         width: 46,
         height: 84,
         speed: 0,
-        maxSpeed: 12,
+        maxSpeed: 250 / 18,
         score: 0
       };
     }
@@ -331,7 +331,7 @@
       for (let i = 0; i < 8; i++) {
         const lane = i % 3;
         const y = -120 - i * 110;
-        const botSpeed = (175 - 16) / 18;
+        const botSpeed = 200 / 18;
         state.racers.push(makeRacer(names[i % names.length], lane, y, botSpeed, colors[i % colors.length]));
       }
 
@@ -406,7 +406,7 @@
           bot.lane = Math.floor(Math.random() * 3);
           bot.x = laneX(bot.lane);
           bot.y = -120 - Math.random() * 200;
-          bot.speed = (175 - 16) / 18;
+          bot.speed = 200 / 18;
         }
 
         bot.x = laneX(bot.lane);
