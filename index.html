@@ -314,7 +314,8 @@
         height: 78,
         speed,
         color,
-        score: 0
+        score: 0,
+        maxSpeed: speed
       };
     }
 
@@ -331,7 +332,8 @@
       for (let i = 0; i < 8; i++) {
         const lane = i % 3;
         const y = -120 - i * 110;
-        const botSpeed = 200 / 18;
+        // Bot speeds: 180-220 km/h (10-12.2 in game units)
+        const botSpeed = (180 + Math.random() * 40) / 18;
         state.racers.push(makeRacer(names[i % names.length], lane, y, botSpeed, colors[i % colors.length]));
       }
 
@@ -342,17 +344,6 @@
       if (state.gameOver) return;
 
       const currentLane = state.player.lane;
-
-      if (direction === 1 && currentLane === 0) {
-        state.player.lane = 1;
-        return;
-      }
-
-      if (direction === -1 && currentLane === 2) {
-        state.player.lane = 1;
-        return;
-      }
-
       state.player.lane = clamp(currentLane + direction, 0, 2);
     }
 
@@ -406,7 +397,7 @@
           bot.lane = Math.floor(Math.random() * 3);
           bot.x = laneX(bot.lane);
           bot.y = -120 - Math.random() * 200;
-          bot.speed = 200 / 18;
+          bot.speed = (180 + Math.random() * 40) / 18;
         }
 
         bot.x = laneX(bot.lane);
