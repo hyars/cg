@@ -527,12 +527,10 @@
 
       if (key === 'ArrowLeft') {
         event.preventDefault();
-        movePlayer(-1);
       }
 
       if (key === 'ArrowRight') {
         event.preventDefault();
-        movePlayer(1);
       }
 
       if (key.toLowerCase() === 'r') {
@@ -546,14 +544,6 @@
 
     function handleTouchAction(action, isDown) {
       state.controls[action] = isDown;
-
-      if (action === 'left' && isDown) {
-        movePlayer(-1);
-      }
-
-      if (action === 'right' && isDown) {
-        movePlayer(1);
-      }
 
       if (!isDown) {
         state.controls.left = false;
